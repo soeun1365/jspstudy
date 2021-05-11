@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form>
+		<input type="text" name="title" placdholder="제목"><br>
+		<input type="text" name="writer" placeholder="작성자">
+		<textarea name="contents" rows="5" cols="20"></textarea><br><br>
+		<button>작성하기</작성하기>
+		<input type\"reset value=작성취소
+ >	</form>
+</body>
+</html>

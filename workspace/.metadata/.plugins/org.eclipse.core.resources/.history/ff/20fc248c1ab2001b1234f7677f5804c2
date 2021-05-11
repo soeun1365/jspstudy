@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form>
+		<input type="text" name="title" placdholder="제목"><br>
+		<input type="text" name="writer" placeholder="작성자"
+ >	</form>
+</body>
+</html>
