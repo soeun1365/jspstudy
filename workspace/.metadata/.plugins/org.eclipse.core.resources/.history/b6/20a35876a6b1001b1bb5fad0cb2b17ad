@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<a href="/01_SERVLET/test">test로 이동</a>
+	<a href = "/01_SERVLET/Ex01">ㅇ</a>
+</body>
+</html>

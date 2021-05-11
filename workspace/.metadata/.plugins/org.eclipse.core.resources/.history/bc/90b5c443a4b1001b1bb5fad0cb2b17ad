@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+</head>
+<body>
+	<h3>서블릿 열기</h3>
+	<a href = "http://localhost:9090/01_SERVLET/Ex01">풀주소로 열기</a><br>
+	<a href = "/01_SERVLET/Ex01">[추천버전]&nbsp; contextPath와 URLMappgin만 적어서 열기</a>	<!-- contextPath와 URLMappgin만 남아도 링크연결됨 -->
+	<br><br>
+	<h3>오류의 예시</h3>
+	<a href = "01_SERVLET/Ex01">ContentPath 앞의 슬래시 없어서 폴더로 인식해서 오류</a><br>	<!-- contextPath 앞의 시작할때 슬래시 지우면 폴더명으로 이해해버리기 때문에 꼭 있어야함 -->
+	<a href = "/Ex01">URL-mapping만 해서 오류</a><br>	<!-- 슬래시로 시작하면 contextPath로 이해함 -->
+	<a href = "Ex01">슬래시 없는 URL-mapping만 해서 오류</a><br>		<!-- 슬래시 없이 매핑만 적으면 안된다. -->
+</body>
+</html>
