@@ -7,6 +7,5 @@ INDEX VERSION 1.4+C:\SPRING0303_ase\jspstudy\workspace\.metadata\.plugins\org.ec
 3384922585.index
 3020923633.index
 754169257.index
-2474129502.index
 2988243063.index
 3171530725.index
