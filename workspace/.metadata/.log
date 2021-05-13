@@ -11602,3 +11602,15 @@ java.io.IOException: Unable to start language server: HTML Language Server: Proc
 
 !ENTRY org.eclipse.wst.html.ui 1 1 2021-05-13 14:09:52.299
 !MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.egit.core 4 0 2021-05-13 14:36:42.870
+!MESSAGE An exception occurred during push on URI https://github.com/soeun1365/jspstudy.git: https://github.com/soeun1365/jspstudy.git: git-receive-pack not permitted on 'https://github.com/soeun1365/jspstudy.git/'
+!STACK 0
+org.eclipse.jgit.errors.TransportException: https://github.com/soeun1365/jspstudy.git: git-receive-pack not permitted on 'https://github.com/soeun1365/jspstudy.git/'
+	at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:547)
+	at org.eclipse.jgit.transport.TransportHttp.openPush(TransportHttp.java:436)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:127)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1335)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:191)
+	at org.eclipse.egit.ui.internal.push.ConfirmationPage$2.run(ConfirmationPage.java:211)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
