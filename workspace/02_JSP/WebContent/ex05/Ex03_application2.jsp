@@ -48,5 +48,3 @@
 	location.href = '/02_JSP/ex05/Ex03_application1.jsp?state=visited';
 	
 </script>
-
-
