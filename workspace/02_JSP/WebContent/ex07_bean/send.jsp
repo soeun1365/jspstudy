@@ -7,13 +7,13 @@
 	<title>Insert title here</title>
 </head>
 <body>
-	<form action="/02_JSP/ex07/receive1.jsp">
+	<form action="/02_JSP/ex07_bean/receive1.jsp">
 		<input type="text" name="name" placeholder="이름"><br>
 		<input type="text" name="age" placeholder="나이"><br>
 		<button>전송</button>
 	</form>
 	
-	<form action="/02_JSP/ex07/receive2.jsp">
+	<form action="/02_JSP/ex07_bean/receive2.jsp">
 		<input type="text" name="name" placeholder="이름"><br>
 		<input type="text" name="age" placeholder="나이"><br>
 		<button>전송</button>
