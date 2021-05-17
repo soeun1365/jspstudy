@@ -65,3 +65,15 @@
 5월 14, 2021 16:37:56.540 [12740:3024:0514/163756.539:ERROR:device_event_log_impl.cc(214)] [16:37:56.540] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
 5월 14, 2021 16:38:54.911 [11092:8276:0514/163854.910:ERROR:device_event_log_impl.cc(214)] [16:38:54.911] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
 5월 14, 2021 17:27:57.499 [10552:10624:0514/172757.499:ERROR:device_event_log_impl.cc(214)] [17:27:57.499] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
+
+5월 17, 2021 09:30:31.381 NEW SESSION
+5월 17, 2021 09:30:31.381 [4220:732:0517/093031.379:ERROR:device_event_log_impl.cc(214)] [09:30:31.379] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
+5월 17, 2021 10:26:39.133 [5504:4728:0517/102639.133:ERROR:device_event_log_impl.cc(214)] [10:26:39.133] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
+5월 17, 2021 10:39:05.194 [2788:3624:0517/103905.194:ERROR:device_event_log_impl.cc(214)] [10:39:05.194] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
+5월 17, 2021 10:43:21.912 [2584:3344:0517/104321.912:ERROR:device_event_log_impl.cc(214)] [10:43:21.911] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
+5월 17, 2021 14:19:07.150 [2584:3344:0517/141907.149:ERROR:page_load_metrics_update_dispatcher.cc(170)] Invalid first_paint 0.23 s for first_image_paint 0.215 s
+5월 17, 2021 14:19:08.180 [2584:3344:0517/141908.179:ERROR:page_load_metrics_update_dispatcher.cc(170)] Invalid first_paint 0.23 s for first_image_paint 0.215 s
+5월 17, 2021 14:19:09.607 [2584:3344:0517/141909.607:ERROR:page_load_metrics_update_dispatcher.cc(170)] Invalid first_paint 0.23 s for first_image_paint 0.215 s
+5월 17, 2021 14:19:10.614 [2584:3344:0517/141910.614:ERROR:page_load_metrics_update_dispatcher.cc(170)] Invalid first_paint 0.23 s for first_image_paint 0.215 s
+5월 17, 2021 14:19:11.639 [2584:3344:0517/141911.639:ERROR:page_load_metrics_update_dispatcher.cc(170)] Invalid first_paint 0.23 s for first_image_paint 0.215 s
+5월 17, 2021 17:03:11.50 [9108:10220:0517/170311.050:ERROR:device_event_log_impl.cc(214)] [17:03:11.050] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
