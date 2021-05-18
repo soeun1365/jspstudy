@@ -40,9 +40,18 @@ public class LoginValidation extends HttpServlet {
 			out.println("alert('검증에 성공했습니다.')");
 			out.println("location.href='/03_CAPTCHA/Index.jsp'");	//첫화면
 			out.println("</script>");
+			//메시지 없이 이동
+			//response.sendRedirect("03_CAPTCHA/Index.jsp");
 		} else {
-			response.sendRedirect("/03_CAPTCHA/Login.jsp");	//다시 로그인하러
+			out.println("<script>");
+			out.println("alert('검증에 실패했습니다. 다시 시도하세요.')");
+			out.println("location.href='/03_CAPTCHA/Login.jsp'");	//첫화면
+			out.println("</script>");
+			//메시지 없이 이동
+			//response.sendRedirect("/03_CAPTCHA/Login.jsp");	//다시 로그인하러
 		}
+		out.flush();
+		out.close();
 	}
 
 	/**
