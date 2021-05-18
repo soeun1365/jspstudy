@@ -27,9 +27,9 @@ EL
 		1) ${address}
 		2) ${sessionScopte.address}
 	9. request에 포함된 parameter
-		1) <input type="text" name="name">					:		${param.name}
-		2) <input type="radio" name="gender" value="남">	:		${paramValues.gender[0]}
-		   <input type="radio" name="gender" value="여">	:		${paramValues.gender[1]}
+		1) <input type="text" name="name">						:		${param.name}
+		2) <input type="checkbox" name="hobbies" value="게임">	:		${paramValues.hobbies[0]}
+		   <input type="checkbox" name="hobbies" value="영화">	:		${paramValues.hobbies[1]}
 	10. EL 내부에서 사용하는 연산자
 		1) +
 		2) -
@@ -46,4 +46,3 @@ EL
 		13) or
 		14) not
 		15) empty	: 비어있다
-		16) 
