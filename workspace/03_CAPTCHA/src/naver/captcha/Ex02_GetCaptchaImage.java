@@ -1,12 +1,6 @@
-package naver.captchar;
+package naver.captcha;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -14,12 +8,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.swing.JOptionPane;
-
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-public class Ex03_Validation {
+// 네이버 캡차 API 예제 - 캡차 이미지 수신
+public class Ex02_GetCaptchaImage {
 
     public static void main(String[] args) {
     	
@@ -57,30 +50,6 @@ public class Ex03_Validation {
         responseBody = get2(apiURL, requestHeaders);
 
         System.out.println(responseBody);
-        
-        
-        // 사용자 입력 검증 코드
-        code = "1"; // 키 발급시 0,  캡차 이미지 비교시 1로 세팅
-        String value = JOptionPane.showInputDialog("자동가입 방지문자를 입력하세요."); // 사용자가 입력한 캡차 이미지 글자값
-        apiURL = "https://openapi.naver.com/v1/captcha/nkey?code=" + code + "&key=" + key + "&value=" + value;
-
-        responseBody = get1(apiURL, requestHeaders);
-        // responseBody : {"result":true,"responseTime":2}
-        System.out.println(responseBody);
-        
-        JSONObject obj2 = null;
-        try {
-        	obj2 = (JSONObject)parser.parse(responseBody);
-        } catch (Exception e) {
-			e.printStackTrace();
-		}
-        
-        boolean result = (boolean)obj2.get("result");
-        if (result) {
-        	System.out.println("휴먼이군요~");
-        } else {
-        	System.out.println("누구냐 넌?");
-        }
         
     }
 
@@ -172,7 +141,7 @@ public class Ex03_Validation {
     }
 
     private static String error(InputStream body) {
-    	InputStreamReader streamReader = new InputStreamReader(body);
+        InputStreamReader streamReader = new InputStreamReader(body);
 
         try (BufferedReader lineReader = new BufferedReader(streamReader)) {
             StringBuilder responseBody = new StringBuilder();
@@ -187,5 +156,5 @@ public class Ex03_Validation {
             throw new RuntimeException("API 응답을 읽는데 실패했습니다.", e);
         }
     }
-    
+
 }

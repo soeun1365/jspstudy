@@ -1,4 +1,4 @@
-package naver.captchar;
+package login.captcha;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,40 +10,51 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.swing.text.html.HTMLEditorKit.Parser;
+import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-// 네이버 캡차 API 예제 - 키발급
-public class Ex01_Get_CaptchaKey {
 
-    public static void main(String[] args) {
-        String clientId = "CjhZfNffyKXraAOwgJsO"; //애플리케이션 클라이언트 아이디값";
-        String clientSecret = "QQlcaJLmMI"; //애플리케이션 클라이언트 시크릿값";
+// 네이버 캡차 API 예제 - 키발급, 키 비교
+public class CaptchaValidation {
 
-        String code = "0"; // 키 발급시 0,  캡차 이미지 비교시 1로 세팅
-        String apiURL = "https://openapi.naver.com/v1/captcha/nkey?code=" + code;
+	// 기존의 main()메소드를
+	// 사용자 입력 값을 검증 결과를 반환하는 메소드로 변환
+	// 1. 반환타입 : boolean
+	// 2. 메소드명 : getValidate
+	// 3. 매개변수 : HttpServletRequest request (parameter인 user_key를 사용하기위해, session에서 key값을 빼기 위해)
+    public static boolean getValidate(HttpServletRequest request) {
+        String clientId = "CjhZfNffyKXraAOwgJsO";		//애플리케이션 클라이언트 아이디값";
+        String clientSecret = "QQlcaJLmMI";				//애플리케이션 클라이언트 시크릿값";
+
+        String code = "1"; // 키 발급시 0,  캡차 이미지 비교시 1로 세팅
+        
+        try {
+        	request.setCharacterEncoding("utf-8");
+        }catch(Exception e) {
+        	e.printStackTrace();
+        }
+
+        String key = request.getSession().getAttribute("key").toString();	// 캡차 키 발급시 받은 키값
+        String value = request.getParameter("user_key");					// 사용자가 입력한 캡차 이미지 글자값
+        String apiURL = "https://openapi.naver.com/v1/captcha/nkey?code=" + code + "&key=" + key + "&value=" + value;
 
         Map<String, String> requestHeaders = new HashMap<>();
         requestHeaders.put("X-Naver-Client-Id", clientId);
         requestHeaders.put("X-Naver-Client-Secret", clientSecret);
-        
-        //네이버가 응답한 JSON데이터 : {"key" : "xxxxxx"}
         String responseBody = get(apiURL, requestHeaders);
-
-        //System.out.println(responseBody);
         
-        //key값을 빼자.
+        //responseBody : {"result" : true, "responseTime" : 50.5}
         JSONParser parser = new JSONParser();
         JSONObject obj = null;
         try {
         	obj = (JSONObject)parser.parse(responseBody);
-        }catch (Exception e){
+        }catch(Exception e) {
         	e.printStackTrace();
         }
-        String key = (String)obj.get("key");	//get()메소드는 Object를 반환하므로 캐스팅 필요
-        System.out.println("전달받은 캡차 키: " + key);
+        
+        return (boolean)obj.get("result");
     }
 
     private static String get(String apiUrl, Map<String, String> requestHeaders){
