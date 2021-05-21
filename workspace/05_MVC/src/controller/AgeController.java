@@ -28,9 +28,11 @@ public class AgeController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("utf-8");
+		
 		BeerService service = new BeerService();
-		String path = service.exeute(request);
+		String path = service.execute(request);
 		
 		request.getRequestDispatcher(path).forward(request, response);
 		
