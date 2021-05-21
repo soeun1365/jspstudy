@@ -30,7 +30,7 @@
 	</c:forEach>
 	
 	<!-- varStatus는 index, count등을 사용할 수 있다. -->
-	<c:forEach var="hobby" items="${hobbies}" varStatus="k">
+	<c:forEach var="hobby" items="${hobbies}" varStatus="k"><!-- 꼭 k아니어도됨 그냥 지어주는것 -->
 		${hobby}의 인덱스: ${k.index}, 순번: ${k.count}<br>
 	</c:forEach>
 	
