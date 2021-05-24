@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="org.apache.el.stream.Optional"/>
 <fullyQualifiedTypeName name="java.util.Optional"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
@@ -38,15 +37,26 @@
 <fullyQualifiedTypeName name="java.lang.Appendable"/>
 <fullyQualifiedTypeName name="model.GugudanService"/>
 <fullyQualifiedTypeName name="model.BeerService"/>
-<fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="model.MealCommand"/>
 <fullyQualifiedTypeName name="org.apache.jasper.compiler.Node.ForwardAction"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="model.DateService"/>
 <fullyQualifiedTypeName name="model.TimeService"/>
 <fullyQualifiedTypeName name="java.lang.Override"/>
 <fullyQualifiedTypeName name="model.HomeService"/>
+<fullyQualifiedTypeName name="model.ShapeCommand"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="model.RectangleCommand"/>
+<fullyQualifiedTypeName name="model.TriangleCommand"/>
+<fullyQualifiedTypeName name="model.CircleCommand"/>
+<fullyQualifiedTypeName name="controller.ModelMapper"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+<fullyQualifiedTypeName name="model.ScroeCommand"/>
+<fullyQualifiedTypeName name="model.ScoreCommand"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="common.ModelAndView"/>
+<fullyQualifiedTypeName name="model.AverageCommand"/>
+<fullyQualifiedTypeName name="model.GradeCommand"/>
 </qualifiedTypeNameHistroy>

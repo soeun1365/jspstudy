@@ -30,7 +30,7 @@
 
 	<form action="/05_MVC/GugudanController">
 		<input type="number" min="2" max="9" name="dan" placeholder="원하는 구구단 입력">
-		<button>구구단을 보여다오</button>
+		<button>구구단을 보여다오</button>0
 	</form>
 
 	<a href="/05_MVC/AgeController?age=50">맥주 하나 주이소!</a>
