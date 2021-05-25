@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>회원 가입</title>
 	<style>
 		.container {
 			width: 500px;
@@ -50,6 +50,10 @@
 				}
 			})
 			
+			$('#cancel_btn').on('click', function(){
+				location.href='../index.jsp';	//경로체크 잘 하기
+				//location.href='/09_MODEL1/index.jsp';		//Contextpath를 사용하는 절대경로로 쓰면 위와 같은 역할함
+			})
 			
 		})
 	</script>

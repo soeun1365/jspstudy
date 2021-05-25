@@ -31,6 +31,7 @@ public class Ex01_JSONObject {
 		//구문분석기를 준비한다. (파서)
 		JSONParser parser = new JSONParser();
 		
+		// String JSON데이터 -> JSONObect 단계 2
 		//구문 분석한다. (파싱)
 		//JSONObject obj = (JSONObject)parser.parse(responseData);	//이렇게 쓰면 되지만 아래처럼 예외처리를 해야한다.
 		JSONObject obj = null;
