@@ -9,7 +9,10 @@
 	<style>
 		.container {
 			width: 500px;
-			margin: 0 auto;
+			margin: 100px auto;
+		}
+		header{
+			text-align: center;
 		}
 	</style>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -61,7 +64,6 @@
 <body>
 	
 	<div class="container">
-		
 		<header>
 			<h1>회원 가입하기</h1>
 		</header>

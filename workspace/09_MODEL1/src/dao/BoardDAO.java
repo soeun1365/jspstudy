@@ -8,6 +8,7 @@ import java.util.List;
 
 import db.util.DBConnector;
 import dto.BoardDTO;
+import dto.PageVO;
 
 public class BoardDAO {
 	private Connection con;
@@ -46,12 +47,33 @@ public class BoardDAO {
 	}
 	
 	
-	/* 2. 전체 게시글 반환 */
-	public List<BoardDTO> selectAll() {
+	/* 2. 일부 게시글 반환 */
+	public List<BoardDTO> selectAll(PageVO pageVO) {
 		List<BoardDTO> list = new ArrayList<BoardDTO>();
 		try {
-			sql = "SELECT IDX, AUTHOR, TITLE, CONTENT, HIT, POSTDATE FROM BOARD";
+			
+			/*
+			 select b.rn , b.employee_id, b.first_name
+			  from (select rownum as rn, a.employee_id, a.first_name
+			          from (select employee_id, first_name
+			                  from employees
+			                 order by hire_date) a) b
+			 where b.rn between 11 and 20;              
+			    
+			-- 읽는 순서가 from/where/select이기 때문에 form 절에 as 이름 만들어줌                        
+			-- a: 정렬한 테이블
+			-- b: a 테이블에 rn을 추가한 테이블	
+			 */
+
+			sql = "select b.IDX, b.AUTHOR, b.TITLE, b.CONTENT, b.HIT, b.POSTDATE\r\n" + 
+					"  from (select rownum as rn, a.IDX, a.AUTHOR, a.TITLE, a.CONTENT, a.HIT, a.POSTDATE\r\n" + 
+					"          from (select IDX, AUTHOR, TITLE, CONTENT, HIT, POSTDATE\r\n" + 
+					"                  from board\r\n" + 
+					"                 order by POSTDATE DESC) a) b\r\n" + 
+					" where b.rn between ? and ? ";
 			ps = con.prepareStatement(sql);
+			ps.setInt(1, pageVO.getBeginRecord());
+			ps.setInt(2, pageVO.getEndRecord());
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				BoardDTO dto = new BoardDTO();
@@ -116,7 +138,7 @@ public class BoardDAO {
 		try {
 			sql = "DELETE FROM BOARD WHERE IDX = ? ";
 			ps = con.prepareStatement(sql);
-			ps.setLargeMaxRows(idx);
+			ps.setLong(1, idx);
 			result = ps.executeUpdate();
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -125,5 +147,43 @@ public class BoardDAO {
 		}
 		return result;
 	}
+	
+	/* 6. 게시글 수정 */
+	public int updateBoard(BoardDTO dto) {
+		int result = 0;
+		try {
+			sql = "UPDATE BOARD SET TITLE = ?, CONTENT = ? WHERE IDX = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, dto.getTitle());
+			ps.setString(2, dto.getContent());
+			ps.setLong(3, dto.getIdx());
+			result = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBConnector.getInstance().close(ps, null);
+		}
+		return result;
+	}
+	
+	/* 7. 전체 게시글의 개수 반환 */
+	public int getTotalRecord() {
+		int totalRecord = 0;
+		try {
+			sql = "SELECT COUNT(IDX) AS TOTAL_RECORD FROM BOARD";
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				totalRecord = rs.getInt(1);	
+					//totalRecord = rs.getInt("TOTAL_RECORD"); 이것과 같이 AS로 붙인 이름으로 가져올 수도 있음
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBConnector.getInstance().close(ps, rs);
+		}
+		return totalRecord;
+	}
+	
 	
 }

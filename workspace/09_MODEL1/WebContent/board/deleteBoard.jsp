@@ -13,6 +13,10 @@
 	pageContext.setAttribute("result", result);				// EL사용을 위해
 %>	
 	<c:if test="${result eq 1}">
+		<h1>게시글이 삭제되었습니다.</h1>
+		<a href="boardList.jsp">게시판으로 이동</a>
+	</c:if>
+	<c:if test="${result eq 0}">
 		<h1>게시글이 삭제되지 않았습니다.</h1>
 		<a href="view.jsp?idx=<%=idx%>">게시글로 이동</a>
 		<a href="boardList.jsp">게시판으로 이동</a>

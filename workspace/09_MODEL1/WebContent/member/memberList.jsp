@@ -13,7 +13,7 @@
 </head>
 <style>
 		.container {
-			width: 500px;
+			width: 600px;
 			margin: 100px auto;
 			text-align: center;
 		}
@@ -21,6 +21,16 @@
 			width: 100%;
 			border-collapse: collapse;
 		}
+		td{
+			border-bottom: 1px solid gray;
+		}
+		
+		td:nth-of-type(1) { width: 90px; }
+		td:nth-of-type(2) { width: 80px; }
+		td:nth-of-type(3) { width: 90px; }
+		td:nth-of-type(4) { width: 100px; }
+		td:nth-of-type(5) { width: 130px; }
+		td:nth-of-type(6) { width: 110px; }
 	</style>
 <body>
 <%
@@ -29,8 +39,8 @@
 	pageContext.setAttribute("list", list);	//EL사용을 위해 pageContext처리
 %>	
 	<div class="container">
-		<h3>전체 회원 정보</h3>
-		<table border="1">
+		<h1>전체 회원 정보</h1>
+		<table>
 			<thead>
 				<tr>
 					<td>회원번호</td>

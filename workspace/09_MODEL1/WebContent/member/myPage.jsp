@@ -11,9 +11,17 @@
 			margin: 100px auto;
 			text-align: center;
 		}
+		a{
+			float: right;
+			color: black;
+			text-decoration: none;
+		}
 		table{
 			width: 100%;
 			border-collapse: collapse;
+		}
+		h3{
+			text-align: center;
 		}
 	</style>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -60,7 +68,9 @@
 	</script>
 </head>
 <body>
+	
 	<div class="container">
+	<a href="../index.jsp">LOGO</a>
 		<form method="post" id="f">
 			<table border="1">
 			<h3>개인 정보 보기</h3>

@@ -71,15 +71,15 @@
 		
 		<!-- 작성자는 수정하기/삭제하기를 할 수 있다. -->
 		<c:if test="${loginDTO.id eq boardDTO.author}">
-		<input type="button" value="수정하기" onclick="">
-		<input type="button" value="삭제하기" onclick="deleteBoard.jsp?idx="idx>
+		<input type="button" value="수정하기" onclick="location.href='updatePage.jsp'">
+		<input type="button" value="삭제하기" onclick="fn_delete()">
 		</c:if>
 		<input type="button" value="목록으로 이동" onclick="location.href='boardList.jsp'">
 		
 		<script>
 			function fn_delete(){
 				if (confirm('삭제할까요?')) {
-					location.href('deleteBoard.jsp');
+					location.href= 'deleteBoard.jsp';
 						//boardDTO가 session에 올라가 있음, 아니었으면 pk인 게시글번호를 넘겼어야한다.
 				}
 			}
