@@ -2,13 +2,14 @@ package dto;
 
 import java.sql.Date;
 
-public class BorardDTO {
+public class BoardDTO {
 	private long idx;
 	private String author;
 	private String title;
 	private String content;
 	private int hit;
 	private Date postdate;
+	
 	public long getIdx() {
 		return idx;
 	}

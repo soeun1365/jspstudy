@@ -11,6 +11,13 @@
 			margin: 100px auto;
 			text-align: center;
 		}
+		a{
+			text-decoration: none;
+			color: black;
+		}
+		.container > a:nth-child(1){
+			float: right;
+		}
 	</style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
@@ -31,6 +38,7 @@
 </head>
 <body>
 	<div class="container">
+		<a href="../index.jsp">LOGO</a>
 		<form id="f" action="login.jsp" method="post">
 			<h1>로그인 하기</h1>
 			<input type="text" name="id" id="id" placeholder="Id"><br>

@@ -47,7 +47,7 @@
 			return_btn.on('click', function(){		
 			location.href = '/09_MODEL1/member/myPage.jsp';
 			})
-				
+			
 		})
 	</script>
 </head>
