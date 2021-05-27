@@ -21,27 +21,15 @@
 		.container > a:nth-child(1){
 			float: right;
 		}
+		input[type="text"], textarea{
+			width: 100%;
+		}
+		textarea{
+			height: 200px;
+		}
 	</style>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script>
-		$(function(){
-			const f = $('#f');
-			const title = $('#title');
-			const content = $('#content');
-			f.submit(function(event){	//변경사항이 없을때
-				if (title.val() == '$(BoardDTO.title)' || content.val() == '$(BoardDTO.content)') {
-					alert('수정할 내용이 없습니다.');
-					event.preventDefault();
-					return false;
-				} else if (title.val() == '') {
-					alert('제목은 필수입니다.');
-					title.focus();
-					return false;
-				}
-			})
-			
-			
-			/*
 			$(function(){
 			const f = $('#f');
 			const title = $('#title');
@@ -58,9 +46,6 @@
 					return false;
 				}
 			})
-		})
-			*/
-			
 		})
 	</script>
 </head>

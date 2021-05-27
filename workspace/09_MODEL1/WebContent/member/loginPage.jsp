@@ -18,6 +18,9 @@
 		.container > a:nth-child(1){
 			float: right;
 		}
+		h1{
+			margin-bottom: 50px;
+		}
 	</style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
@@ -41,8 +44,8 @@
 		<a href="../index.jsp">LOGO</a>
 		<form id="f" action="login.jsp" method="post">
 			<h1>로그인 하기</h1>
-			<input type="text" name="id" id="id" placeholder="Id"><br>
-			<input type="text" name="pw" id="pw" placeholder="Password"><br><br>
+			<input type="text" name="id" id="id" placeholder="아이디"><br>
+			<input type="password" name="pw" id="pw" placeholder="비밀번호"><br><br>
 			<button>로그인</button>
 		</form>
 	</div>

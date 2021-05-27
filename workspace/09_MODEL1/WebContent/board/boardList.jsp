@@ -16,8 +16,12 @@
 			margin: 100px auto;
 		}
 		a{
+			display:block;
 			text-decoration: none;
 			color: black;
+		}
+		th > a{
+			display: inline;
 		}
 		.container > a:nth-child(2){
 			float: right;
@@ -43,6 +47,19 @@
 		
 		tr:hover {
 			background-color: pink;	
+		}
+		tr:nth-of-type(5):hover {
+			background-color: none;	
+		}
+		.paging {
+			text-align: center;
+		}
+		.paging a {
+			text-decoration: none;
+			color: black;
+		}
+		.now_page {
+			color: blue;
 		}
 	</style>
 </head>
@@ -87,12 +104,12 @@
 				
 			*******************************/
 			//시작게시글 번호 = (현재페이지번호 - 1 )* 페이지당레코드 수 + 1
-			int beginRecord = (pageVO.getPage() -1) * pageVO.getRecordPerPage() + 1 ;
-			pageVO.setBeginPage(beginRecord);
+			int beginRecord = (pageVO.getPage() - 1) * pageVO.getRecordPerPage() + 1; 
+			pageVO.setBeginRecord(beginRecord);
 			//종료레코드 번호 = 시작게시글 번호 + 페이지당레고드 수 - 1
 			//단, 종료게시글번호와 전체게시글수 중 작은 값을 종료게시글 번호로 사용한다.
 			int endRecord = beginRecord + pageVO.getRecordPerPage() - 1;
-			endRecord = (endRecord < totalRecord ) ? endRecord : totalRecord;
+			endRecord = (endRecord < totalRecord) ? endRecord : totalRecord;
 			pageVO.setEndRecord(endRecord);
 			
 			// 6. 블록당 시작페이지, 종료 페이지 구하기
@@ -106,19 +123,19 @@
 				
 			*******************************/
 			//시작페이지번호 = ((현재페이지번호 -1) / 블록당페이지수) * 블록당페이지수 + 1
-			int beginPage = ((pageVO.getPage() - 1) / pageVO.getPagePerBlock() ) * pageVO.getPagePerBlock() + 1;
+			int beginPage = ((pageVO.getPage() - 1) / pageVO.getPagePerBlock()) * pageVO.getPagePerBlock() + 1;
 			pageVO.setBeginPage(beginPage);
 			//종료페이지번호 = 시작페이지번호 + 블록당페이지수 - 1
 			//단, 종료페이지번호와 전체 페이지 수 중 작은 값을 종료페이지번호로 사용한다.
-			int endPage = pageVO.getBeginPage() + pageVO.getPagePerBlock() - 1;
-			endPage = ( endPage < pageVO.getTotalPage() ) ? endPage: pageVO.getTotalPage();
+			int endPage = beginPage + pageVO.getPagePerBlock() - 1;
+			endPage = (endPage < pageVO.getTotalPage()) ? endPage : pageVO.getTotalPage();
 			pageVO.setEndPage(endPage);
+			pageContext.setAttribute("pageVO", pageVO);	//EL사용을 위해
+			/* paging 처리 끝 */
 			
-			//beginRecord 부터 endRecord 사이의 목록만 가져오기
-			
-			
+			//beginRecord 부터 endRecord 사이의 목록만 가져오기	
 			List<BoardDTO> list = BoardDAO.getInstance().selectAll(pageVO);
-			pageContext.setAttribute("list", list);						//EL로 쓰기 위해
+			pageContext.setAttribute("list", list);		//EL로 쓰기 위해
 		%>
 		<table>
 			<thead>
@@ -143,6 +160,35 @@
 					</c:forEach>
 				</tr>
 			</tbody>
+			<tfoot class="foot">
+				<tr>
+					<th colspan="5">
+						<%-- 1. 이전 블록으로 이동 : 1블록은 이전 블록이 없다. --%>
+						<c:if test="${pageVO.beginPage < pageVO.pagePerBlock}">
+							이전&nbsp;  <%-- 1블록 --%>
+						</c:if>
+						<c:if test="${pageVO.beginPage >= pageVO.pagePerBlock}">
+							<a href="/09_MODEL1/board/boardList.jsp?page=${pageVO.beginPage - 1}">이전&nbsp;</a>
+						</c:if>
+						<%-- 2. 페이지 번호 : 현재 페이지는 링크가 없다. --%>
+						<c:forEach var="page" begin="${pageVO.beginPage}" end="${pageVO.endPage}" step="1">
+							<c:if test="${pageVO.page == page}">
+								<span class="now_page">${page}&nbsp;</span>  <%-- 현재 페이지 --%>						
+							</c:if>
+							<c:if test="${pageVO.page != page}">
+								<a href="/09_MODEL1/board/boardList.jsp?page=${page}">${page}&nbsp;</a>  <%-- 다른 페이지 --%>
+							</c:if>
+						</c:forEach>
+						<%-- 3. 다음 블록으로 이동 : 마지막 블록은 다음 블록이 없다. --%>
+						<c:if test="${pageVO.endPage != pageVO.totalPage}">
+							<a href="/09_MODEL1/board/boardList.jsp?page=${pageVO.endPage + 1}">다음</a>
+						</c:if>
+						<c:if test="${pageVO.endPage == pageVO.totalPage}">
+							다음  <%-- 마지막 블록 --%>
+						</c:if>
+					</th>
+				</tr>
+			</tfoot>
 		</table>
 	</div>
 </body>
