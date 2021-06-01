@@ -125,5 +125,26 @@ public class BoardDAO {
 			close(con, ps, rs);
 		}
 		return list;
-	}	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

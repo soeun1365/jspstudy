@@ -24,11 +24,6 @@
 			<a href="/10_MODEL2/index.do">
 				<img src="<%=request.getContextPath()%>/assets/images/daum.png" alt="로고" style="width: 200px;">
 			</a>
-			<p>
-				<c:if test="${loginDTO != null}">
-					<p class="mini_info" style="float:right">${loginDTO.name}님 반갑습니다 ♥</p>
-				</c:if>
-			</p>
 			<nav>
 				<ul>
 					<c:if test="${loginDTO == null}">
@@ -43,6 +38,11 @@
 						<li><a href="/10_MODEL2/selectListBoardPage.b">게시판</a></li>
 					</c:if>
 				</ul>
+				<p>
+					<c:if test="${loginDTO != null}">
+						${loginDTO.name}님 반갑습니다 ♥
+					</c:if>
+				</p>
 			</nav>
 		</header>
 	

@@ -8,31 +8,7 @@
 </jsp:include>
 
 <link rel="stylesheet" href="../assets/css/layout.css">
-<style>
-	board_list{
-		width: 500px;
-		margin: auto;
-	}
-	input[type="button"]{
-		float: right;
-	}
-	table{
-		width: 100%;
-		border-collapse: collapse;
-	}
-	td{
-		height: 30px;
-		border-collapse: collapse;
-		text-align: center;
-	}
-	td:nth-of-type(1) {width: 70px;}
-	td:nth-of-type(2) {width: 200px;}
-	td:nth-of-type(3) {width: 70px;}
-	td:nth-of-type(4) {width: 70px;}
-	td:nth-of-type(5) {width: 70px;}
-	
-}
-</style>
+
 <div class="board_list">
 	
 	<%-- 로그인을 해야만 게시글을 작성할 수 있다. --%>
@@ -43,10 +19,10 @@
 	
 	
 	<p>전체 : ${totalRecord}개 게시물</p>
-	<table border="1">
+	<table>
 		<thead>
 			<tr>
-				<td>번호</td>
+				<td>게시글번호</td>
 				<td>제목</td>
 				<td>작성자</td>
 				<td>조회수</td>
@@ -67,7 +43,7 @@
 		<tfoot>
 			<tr>
 				<td colspan="5">
-					
+					${paging}
 				</td>
 			</tr>
 		</tfoot>
