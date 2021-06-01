@@ -5,6 +5,7 @@
 <%
 	// 1. 파라미터 처리
 	request.setCharacterEncoding("utf-8");
+
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
 	String name = request.getParameter("name");

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import db.util.DBConnector;
 import dto.MemberDTO;
@@ -66,34 +67,33 @@ public class MemberDAO {
 	}
 	
 	/* 3. 로그인 */
-	public MemberDTO login(MemberDTO dto) {	//login.jsp에서 받아온 dto
-		MemberDTO loginDTO = null;			//회원이 아니면 null값이 반환
+	public MemberDTO login(MemberDTO dto) {  // login.jsp에서 받아온 dto
+		MemberDTO loginDTO = null;
 		try {
-			sql = "SELECT NO, ID, PW, NAME, EMAIL, REGDATE FROM MEMBER WHERE ID=? AND PW=?";
+			sql = "SELECT NO, ID, PW, NAME, EMAIL, REGDATE FROM MEMBER WHERE ID = ? AND PW = ?";
 			ps = con.prepareStatement(sql);
-			ps.setNString(1, dto.getId());
-			ps.setNString(2, dto.getPw());
+			ps.setString(1, dto.getId());
+			ps.setString(2, dto.getPw());
 			rs = ps.executeQuery();
-			if(rs.next()) {	//검색 결과가 있으면(true)
-				loginDTO = new MemberDTO();	//있어야 만든다.
-				
+			if (rs.next()) {
+				loginDTO = new MemberDTO();
 				loginDTO.setNo(rs.getLong(1));
-				loginDTO.setId(rs.getNString(2));
-				loginDTO.setPw(rs.getNString(3));
-				loginDTO.setName(rs.getNString(4));
-				loginDTO.setEmail(rs.getNString(5));
+				loginDTO.setId(rs.getString(2));
+				loginDTO.setPw(rs.getString(3));
+				loginDTO.setName(rs.getString(4));
+				loginDTO.setEmail(rs.getString(5));
 				loginDTO.setRegdate(rs.getDate(6));
 			}
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DBConnector.getInstance().close(ps, rs);
 		}
-		return loginDTO;	
+		return loginDTO;
 	}
 	
 	/* 4. 비밀번호 변경 */
-	public int updatePw(MemberDTO dto) {  	// pwChange.jsp에서 받아 온 dto
+	public int updatePw(MemberDTO dto) {  // pwChange.jsp에서 받아 온 dto
 		int result = 0;
 		try {
 			sql = "UPDATE MEMBER SET PW = ? WHERE NO = ?";
@@ -109,45 +109,45 @@ public class MemberDAO {
 		return result;
 	}
 	
-	/* 5. 개인정보 수정하기 */
-	public int updateMember(MemberDTO dto) {	//updateMember.jsp에서 받아 온 dto
+	/* 5. 회원정보 변경 */
+	public int updateMember(MemberDTO dto) {  // myPage.jsp에서 받아 온 dto
 		int result = 0;
 		try {
-			sql="UPDATE MEMBER SET NAME = ? && EMAIL = ? WHERE NO = ?";
+			sql = "UPDATE MEMBER SET NAME = ?, EMAIL = ? WHERE NO = ?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, dto.getName());
 			ps.setString(2, dto.getEmail());
 			ps.setLong(3, dto.getNo());
 			result = ps.executeUpdate();
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			DBConnector.getInstance().close(ps, null);
 		}
 		return result;
 	}
 	
 	/* 6. 회원 탈퇴 */
-	public int deleteMember(long no) {
+	public int deleteMember(long no) {  // leave.jsp에서 받아 온 no
 		int result = 0;
 		try {
 			sql = "DELETE FROM MEMBER WHERE NO = ?";
 			ps = con.prepareStatement(sql);
 			ps.setLong(1, no);
 			result = ps.executeUpdate();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			DBConnector.getInstance().close(ps, null);
 		}
 		return result;
 	}
 	
 	/* 7. 전체 회원 */
-	public java.util.List<MemberDTO> selectAll(){
-		ArrayList<MemberDTO> list = new ArrayList<>();
+	public List<MemberDTO> selectAll() {
+		List<MemberDTO> list = new ArrayList<MemberDTO>();
 		try {
-			sql="SELECT NO, ID, PW, NAME, EMAIL, REGDATE FROM MEMBER";
+			sql = "SELECT NO, ID, PW, NAME, EMAIL, REGDATE FROM MEMBER";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while (rs.next()) {
@@ -160,9 +160,9 @@ public class MemberDAO {
 				dto.setRegdate(rs.getDate(6));
 				list.add(dto);
 			}
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			DBConnector.getInstance().close(ps, rs);
 		}
 		return list;

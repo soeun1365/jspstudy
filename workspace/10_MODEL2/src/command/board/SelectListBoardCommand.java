@@ -43,12 +43,13 @@ public class SelectListBoardCommand implements BoardCommand {
 		List<BoardDTO> list = BoardDAO.getInstance().selectList(map);
 		
 		// 페이징 처리
-		String paging = Paging.getPaging("/10_MODEL2/selectListBoardPage.b", totalRecord, recordPerPage, recordPerPage);
+		String paging = Paging.getPaging("/10_MODEL2/selectListBoardPage.b", totalRecord, recordPerPage, page);
 		
 		// 응답View로 전달할 데이터
 		request.setAttribute("list", list);
 		request.setAttribute("totalRecord", totalRecord);
 		request.setAttribute("paging", paging);
+		request.setAttribute("seq", totalRecord - ( page - 1 ) * recordPerPage);
 		
 		ModelAndView mav = new ModelAndView("/board/listBoard.jsp", false);  // 포워드 이동
 		return mav;

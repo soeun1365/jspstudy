@@ -4,7 +4,39 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>비밀번호 변경</title>
+	<title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script>
+		$(document).ready(function(){
+			const pw0 = $('#pw0');
+			const pw = $('#pw');
+			const pw1 = $('#pw1');
+			const f = $('#f');
+			f.on('submit', function(event){
+				if (pw0.val() != '${loginDTO.pw}') {
+					alert('현재 비밀번호를 확인하세요.');
+					event.preventDefault();
+					return false;
+				} else if (pw.val() == '${loginDTO.pw}') {
+					alert('같은 비밀번호입니다.');
+					event.preventDefault();
+					return false;
+				} else if (pw.val() == '' ||  pw1.val() == '') {
+					alert('새 비밀번호를 입력하세요.');
+					event.preventDefault();
+					return false;
+				} else if (pw.val() != pw1.val()) {
+					alert('새 비밀번호를 확인하세요.');
+					event.preventDefault();
+					return false;
+				}
+			})
+			const return_btn = $('#return_btn');
+			return_btn.on('click', function(){
+				location.href = 'myPage.jsp';
+			})
+		})
+	</script>
 	<style>
 		.container {
 			width: 500px;
@@ -16,40 +48,6 @@
 			width: 150px;
 		}
 	</style>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<script>
-	$(document).ready(function(){
-		const pw0 = $('#pw0');
-		const pw = $('#pw');
-		const pw1 = $('#pw1');
-		const f = $('#f');
-		f.on('submit', function(event){
-			if (pw0.val() != '${loginDTO.pw}') {
-				alert('현재 비밀번호를 확인하세요.');
-				event.preventDefault();
-				return false;
-			} else if (pw.val() == '${loginDTO.pw}') {
-				alert('같은 비밀번호입니다.');
-				event.preventDefault();
-				return false;
-			} else if (pw.val() == '' ||  pw1.val() == '') {
-				alert('새 비밀번호를 입력하세요.');
-				event.preventDefault();
-				return false;
-			} else if (pw.val() != pw1.val()) {
-				alert('새 비밀번호를 확인하세요.');
-				event.preventDefault();
-				return false;
-				}
-				
-			})
-			const return_btn = $('#return_btn');
-			return_btn.on('click', function(){		
-			location.href = '/09_MODEL1/member/myPage.jsp';
-			})
-			
-		})
-	</script>
 </head>
 <body>
 	<div class="container">

@@ -4,26 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>myPage</title>
-	<style>
-		.container {
-			width: 500px;
-			margin: 100px auto;
-			text-align: center;
-		}
-		a{
-			float: right;
-			color: black;
-			text-decoration: none;
-		}
-		table{
-			width: 100%;
-			border-collapse: collapse;
-		}
-		h3{
-			text-align: center;
-		}
-	</style>
+	<title>Insert title here</title>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script>
 		$(document).ready(function(){
@@ -31,7 +12,7 @@
 			const pw_btn = $('#pw_btn');
 			pw_btn.on('click', function(){
 				alert('비밀번호 변경 페이지로 이동합니다.');
-				location.href = 'pwPage.jsp';	//정보를 가지고 이동하지 않기 때문에 location으로 이동
+				location.href = 'pwPage.jsp';
 			})
 			
 			const change_btn = $('#change_btn');
@@ -66,17 +47,24 @@
 			
 		})
 	</script>
+	<style>
+		.container {
+			width: 500px;
+			margin: 100px auto;
+			text-align: center;
+		}
+		table {
+			width: 100%;
+		}
+	</style>
 </head>
 <body>
-	
 	<div class="container">
-	<a href="../index.jsp">LOGO</a>
-		<form method="post" id="f">
+		<form id="f" method="post">
 			<table border="1">
-			<h3>개인 정보 보기</h3>
 				<thead>
 					<tr>
-						<td colspan="2">${loginDTO.name} 님 정보</td>
+						<td colspan="2">${loginDTO.name}님 정보</td>
 					</tr>
 				</thead>
 				<tbody>
@@ -90,15 +78,15 @@
 					</tr>
 					<tr>
 						<td>비밀번호</td>
-						<td><input type="button" value="비밀번호변경" id="pw_btn"></td>
+						<td><input type="button" value="비밀번호 변경" id="pw_btn"></td>
 					</tr>
 					<tr>
 						<td>이름</td>
-						<td><input type="text" id="name" name="name" value="${loginDTO.name}"></td>
+						<td><input type="text" name="name" value="${loginDTO.name}" id="name"></td>
 					</tr>
 					<tr>
 						<td>이메일</td>
-						<td><input type="text" id="email" name="email" value="${loginDTO.email}"></td>
+						<td><input type="text" name="email" value="${loginDTO.email}" id="email"></td>
 					</tr>
 					<tr>
 						<td>가입일</td>

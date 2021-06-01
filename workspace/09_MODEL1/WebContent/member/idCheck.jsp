@@ -4,6 +4,7 @@
 <%
 	// 1. 파라미터 처리
 	request.setCharacterEncoding("utf-8");
+
 	String id = request.getParameter("id");
 	
 	// 2. MemberDAO의 isUsableId() 호출

@@ -1,29 +1,28 @@
 package dto;
 
 public class PageVO {
+
+	/*****************************
 	
-	//field 선언만하고 값 안줘도 되지만 한것이다
+	게시글1   관리자    2021-05-21
+	게시글2   관리자    2021-05-21
+	게시글3   관리자    2021-05-21
 	
-	private int totalRecord = 0;	// 전체 게시글의 개수
-	private int totalPage = 0;		// 전체 페이지 수
-	private int recordPerPage = 3;	// 한 페이지당 게시글 수
+	         << 1 2 3 4 5 >>
+	*******************************/
 	
-	/*****************************************
-	 게시글1	관리자		2021-05-21
-	 게시글2	관리자		2021-05-21
-	 게시글3	관리자		2021-05-21
-	 			<< 1 2 3 4 5 >>
-	*****************************************/
+	private int totalRecord = 0;    // 전체 게시글의 개수
+	private int totalPage = 0;      // 전체 페이지의 개수
+	private int recordPerPage = 3;  // 한 페이지당 게시글의 개수
 	
-	private int page = 1;			// 현재 페이지 번호(기본: 1페이지로 설정)
-	private int beginRecord = 0;	// 각 페이지에 표시되는 시작 게시글 번호
-	private int endRecord = 0;		// 각 페이지에 표시되는 종료 게시글 번호
+	private int page = 1;           // 현재 페이지 번호(기본 1페이지)
+	private int beginRecord = 0;    // 각 페이지에 표시되는 시작 게시글 번호
+	private int endRecord = 0;      // 각 페이지에 표시되는 종료 게시글 번호
 	
-	private int pagePerBlock = 5;	// 한블록에 5개 페이지를 표시
-	private int beginPage = 0;		// 각 블록에 표시되는 시작 페이지 번호
-	private int endPage = 0;		// 각 블록에 표시되는 종료 페이지 번호
-	
-	//Getter and Setter
+	private int pagePerBlock = 5;   // 한 블록에 5개 페이지를 표시
+	private int beginPage = 0;      // 각 블록에 표시되는 시작 페이지 번호
+	private int endPage = 0;        // 각 블록에 표시되는 종료 페이지 번호
+
 	public int getTotalRecord() {
 		return totalRecord;
 	}
@@ -33,11 +32,11 @@ public class PageVO {
 	public int getTotalPage() {
 		return totalPage;
 	}
-	//전체 페이지는 전체 레코드 개수와 한 페이지에 표시되는 게시글 개수로 계산한다.
+	// 전체 페이지는 전체 레코드 개수와 한 페이지에 표시되는 게시글 개수로 계산한다.
 	public void setTotalPage() {
 		totalPage = totalRecord / recordPerPage;
 		if (totalRecord % recordPerPage != 0) {
-			totalPage ++;
+			totalPage++;
 		}
 	}
 	public int getRecordPerPage() {
@@ -82,7 +81,5 @@ public class PageVO {
 	public void setEndPage(int endPage) {
 		this.endPage = endPage;
 	}
-	
-	
 	
 }

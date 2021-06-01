@@ -153,7 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\SPRING0303_ase\jspstudy\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\SPRING0303_ase\jspstudy\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\09_MODEL1" path="/09_MODEL1" reloadable="true" source="org.eclipse.jst.jee.server:09_MODEL1"/><Context docBase="C:\SPRING0303_ase\jspstudy\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10_MODEL2" path="/10_MODEL2" reloadable="true" source="org.eclipse.jst.jee.server:10_MODEL2">
+      <Context docBase="C:\SPRING0303_ase\jspstudy\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\SPRING0303_ase\jspstudy\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10_MODEL22" path="/10_MODEL22" reloadable="true" source="org.eclipse.jst.jee.server:10_MODEL22"/><Context docBase="C:\SPRING0303_ase\jspstudy\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10_MODEL2" path="/10_MODEL2" reloadable="true" source="org.eclipse.jst.jee.server:10_MODEL2">
 	<Resource driverClassName="oracle.jdbc.driver.OracleDriver" maxIdle="2" maxTotal="8" maxWaitMillis="5000" name="jdbc/oracle" password="1111" type="javax.sql.DataSource" url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="spring"/>
 	<!--
 		DBCP
@@ -172,7 +172,7 @@
 		8. maxWaitMillis : 최대 대기 시간, 단위 밀리초, 음수이면 제한 없음
 	-->
 
-</Context></Host>
+</Context><Context docBase="C:\SPRING0303_ase\jspstudy\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\09_MODEL1" path="/09_MODEL1" reloadable="true" source="org.eclipse.jst.jee.server:09_MODEL1"/></Host>
     </Engine>
   </Service>
 </Server>

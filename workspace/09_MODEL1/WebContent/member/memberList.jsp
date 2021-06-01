@@ -1,7 +1,6 @@
-<%@page import="java.util.List"%>
 <%@page import="dao.MemberDAO"%>
 <%@page import="dto.MemberDTO"%>
-<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -9,37 +8,28 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>전체 회원 정보</title>
-</head>
-<style>
+	<title>Insert title here</title>
+	<style>
 		.container {
 			width: 600px;
 			margin: 100px auto;
 			text-align: center;
 		}
-		table{
-			width: 100%;
+		table {
 			border-collapse: collapse;
+			width: 100%;
 		}
-		td{
-			border-bottom: 1px solid gray;
+		td {
+			border: 1px solid black;
 		}
-		
-		td:nth-of-type(1) { width: 90px; }
-		td:nth-of-type(2) { width: 80px; }
-		td:nth-of-type(3) { width: 90px; }
-		td:nth-of-type(4) { width: 100px; }
-		td:nth-of-type(5) { width: 130px; }
-		td:nth-of-type(6) { width: 110px; }
 	</style>
+</head>
 <body>
-<%
-	List<MemberDTO> list = MemberDAO.getInstance().selectAll();
-
-	pageContext.setAttribute("list", list);	//EL사용을 위해 pageContext처리
-%>	
+	<%
+		List<MemberDTO> list = MemberDAO.getInstance().selectAll();
+		pageContext.setAttribute("list", list);
+	%>
 	<div class="container">
-		<h1>전체 회원 정보</h1>
 		<table>
 			<thead>
 				<tr>
@@ -65,11 +55,12 @@
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="6"><input type="button" value="뒤로가기" onclick="history.back()"></td>
+					<td colspan="6">
+						<input type="button" value="되돌아가기" onclick="history.back()">
+					</td>
 				</tr>
 			</tfoot>
 		</table>
 	</div>
-	
 </body>
 </html>

@@ -3,6 +3,7 @@ package dto;
 import java.sql.Date;
 
 public class BoardDTO {
+	
 	private long idx;
 	private String author;
 	private String title;
@@ -46,10 +47,10 @@ public class BoardDTO {
 	public void setPostdate(Date postdate) {
 		this.postdate = postdate;
 	}
-	
 	@Override
 	public String toString() {
-		return "BorardDTO [idx=" + idx + ", author=" + author + ", title=" + title + ", content=" + content + ", hit="
+		return "BoardDTO [idx=" + idx + ", author=" + author + ", title=" + title + ", content=" + content + ", hit="
 				+ hit + ", postdate=" + postdate + "]";
 	}
+	
 }

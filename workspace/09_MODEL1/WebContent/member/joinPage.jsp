@@ -5,14 +5,11 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>회원 가입</title>
+	<title>Insert title here</title>
 	<style>
 		.container {
 			width: 500px;
-			margin: 100px auto;
-		}
-		header{
-			text-align: center;
+			margin: 0 auto;
 		}
 	</style>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -52,18 +49,17 @@
 					return false;
 				}
 			})
-			
 			$('#cancel_btn').on('click', function(){
-				location.href='../index.jsp';	//경로체크 잘 하기
-				//location.href='/09_MODEL1/index.jsp';		//Contextpath를 사용하는 절대경로로 쓰면 위와 같은 역할함
+				location.href = '../index.jsp';
+				// location.href = '/09_MODEL1/index.jsp';
 			})
-			
 		})
 	</script>
 </head>
 <body>
 	
 	<div class="container">
+		
 		<header>
 			<h1>회원 가입하기</h1>
 		</header>

@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="model.BeerService"/>
-<fullyQualifiedTypeName name="model.MealCommand"/>
-<fullyQualifiedTypeName name="org.apache.jasper.compiler.Node.ForwardAction"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
-<fullyQualifiedTypeName name="model.DateService"/>
-<fullyQualifiedTypeName name="model.TimeService"/>
-<fullyQualifiedTypeName name="model.HomeService"/>
 <fullyQualifiedTypeName name="model.ShapeCommand"/>
 <fullyQualifiedTypeName name="model.RectangleCommand"/>
 <fullyQualifiedTypeName name="model.TriangleCommand"/>
@@ -21,11 +13,6 @@
 <fullyQualifiedTypeName name="db.util.DBConfig"/>
 <fullyQualifiedTypeName name="java.sql.DriverManager"/>
 <fullyQualifiedTypeName name="java.awt.List"/>
-<fullyQualifiedTypeName name="dao.BoardDAO"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="dto.BoardDTO"/>
-<fullyQualifiedTypeName name="db.util.DBConnector"/>
 <fullyQualifiedTypeName name="dto.PageVO"/>
 <fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
 <fullyQualifiedTypeName name="javax.activation.DataSource"/>
@@ -51,13 +38,26 @@
 <fullyQualifiedTypeName name="command.member.JoinPageCommand"/>
 <fullyQualifiedTypeName name="org.apache.jasper.compiler.Node.GetProperty"/>
 <fullyQualifiedTypeName name="java.sql.Connection"/>
-<fullyQualifiedTypeName name="common.ModelAndView"/>
 <fullyQualifiedTypeName name="command.member.LogoutCommand"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="command.member.JoinCommand"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Member"/>
 <fullyQualifiedTypeName name="dao.MemberDAO"/>
+<fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+<fullyQualifiedTypeName name="command.board.SelectOneBoard"/>
+<fullyQualifiedTypeName name="db.util.DBConnector"/>
 <fullyQualifiedTypeName name="dto.MemberDTO"/>
+<fullyQualifiedTypeName name="command.board.FindBoardCommand"/>
+<fullyQualifiedTypeName name="org.apache.commons.collections4.map.HashedMap"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="dto.BoardDTO"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="common.Paging"/>
+<fullyQualifiedTypeName name="command.board.DeleteBoardCommand"/>
+<fullyQualifiedTypeName name="dao.BoardDAO"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="common.ModelAndView"/>
 </qualifiedTypeNameHistroy>

@@ -4,33 +4,26 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>게시글 수정하기</title>
+	<title>Insert title here</title>
 	<style>
-		*{
+		* {
 			font-family: '돋움', sans-serif;
 			font-size: 16px;
 		}
-		.container{
+		.container {
 			width: 500px;
 			margin: 100px auto;
 		}
-		a{
-			text-decoration: none;
-			color: black;
-		}
-		.container > a:nth-child(1){
-			float: right;
-		}
-		input[type="text"], textarea{
+		input[type=text], textarea {
 			width: 100%;
 		}
-		textarea{
-			height: 200px;
+		textarea {
+			height: 100px;
 		}
 	</style>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script>
-			$(function(){
+		$(function(){
 			const f = $('#f');
 			const title = $('#title');
 			const content = $('#content');
@@ -51,22 +44,18 @@
 </head>
 <body>
 	<div class="container">
-	<a href="../index.jsp">LOGO</a>
 		<form id="f" action="updateBoard.jsp" method="post">
 			<h3>게시글 번호</h3>
 			${boardDTO.idx}<br>
 			<h3>작성자</h3>
 			${boardDTO.author}<br>
 			<h3>제목</h3>
-			<input type="text" name="title" id="title" value="${boardDTO.title}">
+			<input type="text" name="title" id="title" value="${boardDTO.title}"><br>
 			<h3>내용</h3>
-			<textarea name="content" id="content">${boardDTO.content}</textarea><br>
+			<textarea name="content" id="content">${boardDTO.content}</textarea><br><br>
 			<button>수정하기</button>
 			<input type="button" value="수정취소하기" onclick="history.back()">
 		</form>
-		
-		
-		
 	</div>
 </body>
 </html>
