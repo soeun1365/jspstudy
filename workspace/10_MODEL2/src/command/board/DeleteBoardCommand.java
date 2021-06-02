@@ -12,15 +12,17 @@ public class DeleteBoardCommand implements BoardCommand {
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) {
+		
 		// 파라미터 처리
 		long idx = Long.parseLong(request.getParameter("idx"));
 		
-		/* 삭제의 고찰 
-		 * 1. delete	: 댓글이 달려있을 경우 점검해야한다. (외래키 참조 때문에 delete가 안됨)
-		 * 2. update	: 댓글이 삭제 상태라고 수정하면 된다.
-		 * */
+		/*
+			삭제의 고찰
+			1. DELETE : 댓글이 달려 있는지 점검해야 한다. 댓글이 달려 있으면 못 지운다.
+			2. UPDATE : 댓글이 삭제 상태라고 수정하면 된다.
+		*/
 		
-		//delete를 update 개념으로 접근하자
+		// 삭제를 UPDATE로 처리
 		
 		// DAO의 deleteBoard() 메소드 호출
 		int result = BoardDAO.getInstance().deleteBoard(idx);
@@ -38,8 +40,9 @@ public class DeleteBoardCommand implements BoardCommand {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		return mav;
-				
+		
 	}
 
 }

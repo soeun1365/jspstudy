@@ -28,6 +28,7 @@
 	td:nth-of-type(5) { width: 100px; }
 </style>
 <div class="board_list">
+	
 	<%-- 검색 기능 --%>
 	<form action="/10_MODEL2/findBoard.b">
 		<select name="column">

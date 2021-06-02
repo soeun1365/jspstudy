@@ -49,7 +49,7 @@ public class SelectListBoardCommand implements BoardCommand {
 		request.setAttribute("list", list);
 		request.setAttribute("totalRecord", totalRecord);
 		request.setAttribute("paging", paging);
-		request.setAttribute("seq", totalRecord - ( page - 1 ) * recordPerPage);
+		request.setAttribute("seq", totalRecord - (page - 1) * recordPerPage);
 		
 		ModelAndView mav = new ModelAndView("/board/listBoard.jsp", false);  // 포워드 이동
 		return mav;
@@ -57,11 +57,3 @@ public class SelectListBoardCommand implements BoardCommand {
 	}
 
 }
-
-
-
-
-
-
-
-

@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="model.ShapeCommand"/>
-<fullyQualifiedTypeName name="model.RectangleCommand"/>
-<fullyQualifiedTypeName name="model.TriangleCommand"/>
-<fullyQualifiedTypeName name="model.CircleCommand"/>
-<fullyQualifiedTypeName name="controller.ModelMapper"/>
 <fullyQualifiedTypeName name="model.ScroeCommand"/>
 <fullyQualifiedTypeName name="model.ScoreCommand"/>
 <fullyQualifiedTypeName name="model.AverageCommand"/>
@@ -28,7 +23,6 @@
 <fullyQualifiedTypeName name="org.json.simple.JSONArray"/>
 <fullyQualifiedTypeName name="org.json.simple.parser.JSONParser"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
-<fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.io.FileWriter"/>
 <fullyQualifiedTypeName name="exam.ApiSearchMovie"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
@@ -52,12 +46,18 @@
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="dto.BoardDTO"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="common.Paging"/>
 <fullyQualifiedTypeName name="command.board.DeleteBoardCommand"/>
+<fullyQualifiedTypeName name="command.board.UpdateBoardPageCommand"/>
+<fullyQualifiedTypeName name="command.board.UpdateBoardCommand"/>
+<fullyQualifiedTypeName name="com.oreilly.servlet.MultipartRequest"/>
+<fullyQualifiedTypeName name="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="command.board.BoardCommand"/>
+<fullyQualifiedTypeName name="dto.BoardDTO"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="dao.BoardDAO"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
-<fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="common.ModelAndView"/>
 </qualifiedTypeNameHistroy>

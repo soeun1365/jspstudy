@@ -10,5 +10,6 @@
   <module moduleId="org.eclipse.jst.jee.server:01_SERVLET" serverId="Tomcat v8.5 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:10_MODEL2" serverId="Tomcat v8.5 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:10_MODEL22" serverId="Tomcat v8.5 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:11_MYBATIS" serverId="Tomcat v8.5 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:03_CAPTCHA" serverId="Tomcat v8.5 Server at localhost"/>
 </modules>

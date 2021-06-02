@@ -26,9 +26,9 @@ public class BoardController extends HttpServlet {
 		String[] arr = request.getRequestURI().split("/");
 		String cmd = arr[arr.length - 1];
 		*/
-		String requestURI = request.getRequestURI();     //  /10_MODEL2/insertBoard.b
-		String contextPath = request.getContextPath();   //  /10_MODEL2
-		String cmd = requestURI.substring(contextPath.length() + 1);  //  insertBoard.b
+		String requestURI = request.getRequestURI();     
+		String contextPath = request.getContextPath();   
+		String cmd = requestURI.substring(contextPath.length() + 1);  
 		
 		BoardCommand command = BoardCommandMapper.getInstance().getCommand(cmd);
 		

@@ -23,18 +23,44 @@
 	.board_img > img {
 		width: 100%;
 	}
+	.reply_form {
+		width: 100%;
+	}
+	.reply_form textarea {
+		width: 85%;
+		height: 50px;
+	}
+	.reply_form button {
+		width: 13%;
+	}
+	.reply_list table{
+		width: 100%;
+	}
+	.reply_list table{
+		width: 100%;
+		border-collapse: collapse;
+		boder-top: 1px solid gray;
+		border-bottom: 1px solid gray;
+	}
+	.reply_list table td{
+		padding: 10px;
+	}
+	.reply_list table td:nth-of-type(1){width: 60%;}
+	.reply_list table td:nth-of-type(2){width: 10%;}
+	.reply_list table td:nth-of-type(3){width: 20%;}
+	.reply_list table td:nth-of-type(4){width: 10%;}
+	
 </style>
 <script>
 	$(document).ready(function(){
 		const delete_btn = $('#delete_btn');
 		delete_btn.click(function(){
-			if(confirm('정말 삭제할까요?')){
-				location.href='/10_MODEL2/deleteBoard.b?idx=${dto.idx}';	/* 누구 삭제할지 전달해줘야함 */
+			if (confirm('삭제할까요?')) {
+				location.href='/10_MODEL2/deleteBoard.b?idx=${dto.idx}';
 			}
 		})
 	})
 </script>
-
 <div class="board_view">
 	<div class="board_content">
 		<p class="title">작성자</p>
@@ -55,17 +81,51 @@
 	</div>
 </div>
 <div>
-	<input type="button" value="목록보기" onclick="location.href='${referer}'">
-	<c:if test="${loginDTO.id == dto.author}">	<%-- 작성자만 볼 수 있다. --%>
-		<form action="/10_MODEL2/updateBoardPage.b" method="post">
+	<form action="/10_MODEL2/updateBoardPage.b" method="post">
+		<input type="button" value="목록보기" onclick="location.href='${referer}'">
+		<c:if test="${loginDTO.id == dto.author}">  <%-- 작성자만 볼 수 있다. --%>
 			<input type="hidden" name="idx" value="${dto.idx}">
 			<input type="hidden" name="title" value="${dto.title}">
 			<input type="hidden" name="content" value="${dto.content}">
 			<input type="hidden" name="filename" value="${dto.filename}">
 			<button>수정하기</button>
-		</form>
-		<input type="button" value="삭제하기" id="delete_btn">
-	</c:if>
+			<input type="button" value="삭제하기" id="delete_btn">
+		</c:if>
+	</form>
 </div>
 
+<%-- 댓글 입력창 --%>
+<div class="reply_form">
+	<form action="/10_MODEL2/insertReply.b" method="post">
+		<input type="hidden" name="boardIdx" value="${dto.idx}">
+		<textarea name="content" placeholder="로그인 후 작성 가능합니다."></textarea>
+		<c:if test="${loginDTO != null}">
+			<button>작성하기</button>
+		</c:if>
+	</form>
+</div>
+
+<%-- 댓글 목록창 --%>
+<div class="reply_list">
+	댓글 ${replyCount}개<br>
+	<table>
+		<tbody>
+			<c:forEach var="replyDTO" items="${replyList}">
+				<tr>
+					<td>${replyDTO.content}</td>
+					<td>${replyDTO.author}</td>
+					<td>${replyDTO.postdate}</td>
+					<td>
+						<c:if test="${loginDTO.id == replyDTO.author}">	<%-- 댓글의 작성자만 삭제 가능 --%>
+							<%--삭제할 댓글 idx와, 다시 돌아올 게시글의 idx 반환해줘야한다 --%>
+							<a href="/10_MODEL2/deleteReply.b?replyIdx=${replyDTO.idx}&idx=${replyDTO.boardIdx}">삭제</a>
+						</c:if>
+					</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+		
+	</table>
+	
+</div>
 <%@ include file="../layout/footer.jsp" %>

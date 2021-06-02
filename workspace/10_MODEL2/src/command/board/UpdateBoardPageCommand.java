@@ -9,6 +9,7 @@ public class UpdateBoardPageCommand implements BoardCommand {
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) {
-		return new ModelAndView("/board/updateBoardPage.jsp", false);
+		return new ModelAndView("/board/updateBoardPage.jsp", false);  // 파라미터 전달을 위해서 forward
 	}
+
 }

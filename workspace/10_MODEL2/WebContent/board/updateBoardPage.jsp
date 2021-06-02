@@ -44,23 +44,23 @@
 </style>
 <script>
 	$(document).ready(function(){
-		
+		/*
 		const f = $('#f');
 		const title = $('#title');
 		const content = $('#content');
 		const filename = $('#filename');
 		f.submit(function(event){
 			let file = filename.val();
-			file = file.substring(file.lastIndexOf('\\')+1);
+			file = file.substring(file.lastIndexOf('\\') + 1);
 			if (title.val() == '${param.title}' &&
 				content.val() == '${param.content}' &&
-				file == '${param.filename}'){
+				file == '${param.filename}') {
 				alert('수정할 내용이 없습니다.');
 				event.preventDefault();
 				return false;
 			}
 		})
-		
+		*/
 		const list_btn = $('#list_btn');
 		list_btn.click(function(){
 			location.href = '/10_MODEL2/selectListBoardPage.b';
