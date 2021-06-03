@@ -15,7 +15,7 @@ public class DBService {
 	
 	private DBService() {
 		//SqlSessionFactory 빌드
-		try {
+		try {	//아래 세줄은 mybatis.org에 나와있는거 붙여쓰기 한것
 			String resource = "mybatis/config/sqlmap-config.xml";
 			InputStream inputStream = Resources.getResourceAsStream(resource);
 			factory = new SqlSessionFactoryBuilder().build(inputStream);

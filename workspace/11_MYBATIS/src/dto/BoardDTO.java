@@ -71,10 +71,10 @@ public class BoardDTO {
 	public void setState(int state) {
 		this.state = state;
 	}
-	public long getGroup() {
+	public long getGroupno() {
 		return groupno;
 	}
-	public void setGroup(long groupno) {
+	public void setGroupno(long groupno) {
 		this.groupno = groupno;
 	}
 	public int getGroupord() {

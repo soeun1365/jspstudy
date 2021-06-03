@@ -7,7 +7,8 @@
 	<title>Insert title here</title>
 </head>
 <body>
-	<a href="/11_MYBATIS/selectList.do">게시판</a>
-	
+	<a href="/11_MYBATIS/selectList1.do">게시판</a>
+	<a href="/11_MYBATIS/selectList2.do">게시판</a>
+	<a href="/11_MYBATIS/selectList3.do">게시판</a>
 </body>
 </html>
