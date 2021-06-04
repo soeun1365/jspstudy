@@ -6,7 +6,6 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import common.ModelAndView;
 import dto.BoardDTO;
 import mybatis.config.DBService;
 
@@ -17,7 +16,7 @@ public class BoardDAO {
 	//싱글톤
 	private static BoardDAO instance = new BoardDAO();
 	private BoardDAO() {
-		factory = DBService.getInstance().getfactory();	//DBService를 사용해서 factory를 받아온다
+		factory = DBService.getInstance().getFactory();	//DBService를 사용해서 factory를 받아온다
 	}
 	public static BoardDAO getInstance() {
 		if(instance == null) {
@@ -115,4 +114,27 @@ public class BoardDAO {
 		ss.close();
 		return list;
 	}
+	
+	/* 10. */
+	public BoardDTO selectBoard(long no) {
+		SqlSession ss = factory.openSession();
+		BoardDTO boardDTO = ss.selectOne(NAMESPACE + ".selectBoard", no);
+		ss.close();
+		return boardDTO;
+	}
+
+	/* 11. 원글의 groupord보다 큰 groupord를  가진 댓글의 groupord 증가 */
+	public int increaseGroupordOtherReply(BoardDTO boardDTO) {
+		SqlSession ss = factory.openSession(false);
+		int result = ss.update(NAMESPACE + ".increaseGroupordOtherReply", boardDTO);
+		if(result > 0) {
+			ss.commit();
+			ss.close();
+		}
+		return result;
+	}
+	
+	
+	
+	
 }

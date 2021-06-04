@@ -17,9 +17,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         </environment>
 	</environments>
 	
-	<!-- 내부에 주석넣지 말자, 주석인데 읽히기도해서 -->
 	<mappers>
-        <mapper resource="mybatis/mapper/board.xml"/>
+        <mapper resource="dao/member.xml"/>
 	</mappers>
 	
 </configuration>

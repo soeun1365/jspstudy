@@ -19,30 +19,27 @@ public class InsertReplyCommand3 implements BoardCommand {
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		String ip = request.getRemoteAddr();
-		long groupno = Long.parseLong(request.getParameter("groupno"));	// 게시글의 번호도 알아야해서 selectList.jsp에서 파라미터로 no값을 보내줌
+		long no = Long.parseLong(request.getParameter("no"));
 		
-		//DTO
 		BoardDTO replyDTO = new BoardDTO();
 		replyDTO.setAuthor(author);
 		replyDTO.setTitle(title);
 		replyDTO.setContent(content);
 		replyDTO.setIp(ip);
-		replyDTO.setGroupno(groupno);		// 댓글은 원글의no를 가져와 같은 그룹이 된다.
-		replyDTO.setDepth(1);	// 1단 댓글달기 원글의 depth는 0이니 그거보다 하나 크게 1로 지정해주기
-		replyDTO.setDepth(1); 	// 댓글의 depth는 1이다.
-		replyDTO.setGroupord(1); // 그룹 내부 순서는 1을 가진다.
 		
 		//원글 정보 가져오기(dao 작업)
+		BoardDTO boardDTO = BoardDAO.getInstance().selectBoard(no);
+		
+		//가져온 원글(부모) 정보를 이용해서 replyDTO 생성
+		replyDTO.setGroupno(boardDTO.getGroupno());
+		replyDTO.setGroupord(boardDTO.getGroupord() + 1);
+		replyDTO.setDepth(boardDTO.getDepth() + 1);
 		
 		//같은 그룹의 기존 댓글들 중에서
 		//groupord가 가져온 원글(부모)의 groupord보다 큰 댓글들의 
 		//groupord를 1씩 증가
-		
-		
-		
-		//기존 댓글들의 groupord를 모두 1씩 증가시킨다.
-		BoardDAO.getInstance().increaseGroupordPreviousReply(groupno); // 그룹번호(groupno) 전달
-		
+		BoardDAO.getInstance().increaseGroupordOtherReply(boardDTO);
+
 		// DAO 댓글 삽입하기
 		int result = BoardDAO.getInstance().insertReply(replyDTO);
 		

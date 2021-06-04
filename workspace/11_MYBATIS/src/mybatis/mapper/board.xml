@@ -6,14 +6,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- SQL 작성하는 곳 -->
 
 <!-- namespace는 mapper의 전체경로(패키지 포함)를 작성한다. -->
-<mapper namespace="mybatis.mapper.board">	<!-- 본인 이름까지 경로 적기 -->
+<mapper namespace="mybatis.mapper.board">
 
-	<!-- 사용하는 태그는 쿼리문이다(select, delete, update...) -->
-	<!-- id가 DAO에서 쓰임 -->
-	<!-- parameterType이 DAO에서 매개변수가 됨 -->
-	<!-- insert제외한 select, delete, update는 int를 반환하게 되어있기 때문에
-		resultType을 작성하지 않는다. -->
-	<!-- selectOne 이더 selectList던 DTO반환이다, 함수의 값을 반환할경우 int가능하지만 대부분은 DTO반환이다 -->
+	<!-- INSERT, UPDATE, DELETE문에 resultType을 작성하지 않는다. -->
+	
 	<insert id="insertBoard" parameterType="dto.BoardDTO">
 		INSERT INTO
 		 BOARD
@@ -31,6 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				0  <!-- 게시글(0)/댓글(1 이상) 구분 -->
 		)
 	</insert>
+
 	<select id="getTotalRecord" resultType="int">
 		SELECT COUNT(NO)
 		  FROM BOARD
@@ -39,27 +36,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 1단 댓글만 허용하는 게시판의 정렬 -->
 	<select id="selectList" parameterType="Map" resultType="dto.BoardDTO">
 		SELECT B.*
-		  FROM(SELECT ROWNUM AS RN, A.*
-		  		 FROM (SELECT *
-		  		 		 FROM BOARD
-		  		 		ORDER BY GROUPNO DESC, DEPTH ASC, GROUPORD DESC) A ) B	<!-- 먼저 단 댓글이 위로, 원글이 댓글보다 위로 올라오도록 정렬 -->
+		  FROM (SELECT ROWNUM AS RN, A.*
+		  		  FROM (SELECT *
+		  		  		  FROM BOARD
+		  		  		 ORDER BY GROUPNO DESC, DEPTH ASC, GROUPORD DESC) A ) B
 		 WHERE B.RN BETWEEN #{beginRecord} AND #{endRecord}
 	</select>
-	
-	<!-- 기존의 댓글들의 groupno 1증가 -->
-	<update id="increaseGroupordPreviousReply" parameterType="long">	<!-- long, Long 둘다가능 (int , Integer가능) -->
+
+	<update id="increseGroupordPreviousReply" parameterType="long">
 		UPDATE BOARD
 		   SET GROUPORD = GROUPORD + 1
 		 WHERE GROUPNO = ${groupno}
 		   AND DEPTH = 1
 	</update>
-	
-	<!-- 게시판정렬 -->
+
 	<insert id="insertReply" parameterType="dto.BoardDTO">
 		INSERT INTO
 		 BOARD
 		VALUES (BOARD_SEQ.NEXTVAL,
-				#{author},  <!-- dto.BoardDTO에서 getAuthor()를 실행한다. -->		<!-- 문자열은 샵(#) 사용 , 숫자는 달러($) 사용 -->
+				#{author},  <!-- dto.BoardDTO에서 getAuthor()를 실행한다. -->
 				#{title},
 				#{content},
 				#{ip},
@@ -67,11 +62,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				SYSDATE,  <!-- 작성일 -->
 				SYSDATE,  <!-- 최종수정일 -->
 				0,  <!-- 정상: 0, 삭제: -1 -->
-<!-- 변경 -->	${groupno},  														<!-- 문자열은 샵(#) 사용 , 숫자는 달러($) 사용 -->
-<!-- 변경 -->	${groupord},  
-<!-- 변경 -->	${depth}  
+				${groupno},
+				${groupord},
+				${depth}
 		)
 	</insert>
+
 	<select id="getFindRecordCount" parameterType="Map" resultType="int">
 		SELECT COUNT(NO)
 		  FROM BOARD
@@ -84,6 +80,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{query}  : '%검색어%'
 		-->
 	</select>
+
 	<select id="findList" parameterType="Map" resultType="dto.BoardDTO">
 		SELECT B.*
 		  FROM (SELECT ROWNUM AS RN, A.*
@@ -95,19 +92,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		  		  		 ORDER BY GROUPNO DESC, DEPTH ASC, GROUPORD DESC) A ) B
 		 WHERE B.RN BETWEEN #{beginRecord} AND #{endRecord}
 	</select>
+
 	<update id="delete" parameterType="long">
 		UPDATE BOARD
 		   SET STATE = -1
 		 WHERE NO = ${no}
 	</update>
-	
+
 	<!-- 대댓글만 허용하는 게시판의 정렬 -->
 	<select id="selectList3" parameterType="Map" resultType="dto.BoardDTO">
 		SELECT B.*
-		  FROM(SELECT ROWNUM AS RN, A.*
-		  		 FROM (SELECT *
-		  		 		 FROM BOARD
-		  		 		ORDER BY GROUPNO DESC, GROUPORD ASC) A ) B
+		  FROM (SELECT ROWNUM AS RN, A.*
+		  		  FROM (SELECT *
+		  		  		  FROM BOARD
+		  		  		 ORDER BY GROUPNO DESC, GROUPORD ASC) A ) B
 		 WHERE B.RN BETWEEN #{beginRecord} AND #{endRecord}
 	</select>
+	
+	<select id="selectBoard" parameterType="long" resultType="dto.BoardDTO">
+		SELECT *
+		  FROM BOARD
+		 WHERE NO = ${no}
+	</select>
+
+	<update id="increseGroupordOtherReply" parameterType="dto.BoardDTO">
+		UPDATE BOARD
+		   SET GROUPORD = GROUPORD + 1
+		 WHERE GROUPNO = ${groupno}
+		   AND GROUPORD > ${groupord}
+	</update>
+
 </mapper>
