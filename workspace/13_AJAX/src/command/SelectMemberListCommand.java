@@ -12,7 +12,6 @@ import org.json.simple.JSONObject;
 import controller.ModelAndView;
 import dao.MemberDAO;
 import dto.Member;
-import dto.Paging;
 
 public class SelectMemberListCommand implements MemberCommand {
 
