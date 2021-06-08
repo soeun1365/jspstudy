@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -25,9 +26,9 @@ public class MemberDAO {
 	}
 	
 	/* 1. 회원 목록 가져오기 */
-	public List<Member> selectMemberList() {
+	public List<Member> selectMemberList(Map<String, Integer> map) {
 		SqlSession ss = factory.openSession();
-		List<Member> list = ss.selectList("dao.member.selectMemberList");
+		List<Member> list = ss.selectList("dao.member.selectMemberList", map);
 		ss.close();
 		return list;
 	}
@@ -58,7 +59,7 @@ public class MemberDAO {
 		ss.close();
 		return result;
 	}
-	/* 5. 회원 삭젷기 */
+	/* 5. 회원 삭제하기 */
 	public int deleteMember(long no) {
 		SqlSession ss = factory.openSession(false);
 		int result = ss.delete("dao.member.deleteMember", no);
