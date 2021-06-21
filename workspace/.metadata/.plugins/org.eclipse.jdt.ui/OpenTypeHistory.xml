@@ -5,4 +5,6 @@
 <typeInfo handle="=10_MODEL2/src&lt;command.board{BoardCommand.java[BoardCommand" modifiers="513" timestamp="1622591796377"/>
 <typeInfo handle="=11_MYBATIS/src&lt;command{BoardCommand.java[BoardCommand" modifiers="513" timestamp="1622605424102"/>
 <typeInfo handle="=13_AJAX/src&lt;command{MemberCommand.java[MemberCommand" modifiers="513" timestamp="1623045888451"/>
+<typeInfo handle="=14_BATCH/C:\/SPRING0303_ase\/jspstudy\/workspace\/14_BATCH\/WebContent\/WEB-INF\/lib\/quartz-2.3.0-SNAPSHOT.jar&lt;org.quartz(Job.class[Job" modifiers="1537" timestamp="1623141563000"/>
+<typeInfo handle="=14_BATCH/src&lt;command{StudentCommand.java[StudentCommand" modifiers="513" timestamp="1623141563000"/>
 </typeInfoHistroy>

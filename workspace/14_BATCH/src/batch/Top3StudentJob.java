@@ -20,8 +20,8 @@ public class Top3StudentJob implements Job {
 		
 		List<StudentDTO> top3 = StudentDAO.getInstance().top3StudentList();
 		try {
-			File file = new File("D:" + File.separator +
-								 "spring0303" + File.separator + 
+			File file = new File("C:" + File.separator +
+								 "spring0303_ase" + File.separator + 
 								 "jspstudy" + File.separator + 
 								 "workspace" + File.separator +
 								 "14_BATCH", "포상자명단.txt");
@@ -41,7 +41,5 @@ public class Top3StudentJob implements Job {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
-	
 }

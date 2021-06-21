@@ -33,11 +33,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 	<select id="top3StudentList" resultType="dto.StudentDTO">
-		SELECT ROWNUM, A.SNO, A.NAME, A.KOR, A.ENG, A.MAT, A.AVE, A.GRADE
+		SELECT ROWNUM, A.SNO, A.NAME, A.KOR, A.ENG, A.MAT, A.AVE, A.GRADE	<!--(2) ROWNUM 앞에붙여서 -->
 		  FROM (SELECT SNO, NAME, KOR, ENG, MAT, AVE, GRADE
 		          FROM STUDENT
-		         ORDER BY AVE DESC) A
-		 WHERE <![CDATA[ROWNUM <= 3]]>
+		         ORDER BY AVE DESC) A	<!--(1) 먼저 평균순으로 내림차순정렬 -->
+		 WHERE <![CDATA[ROWNUM <= 3]]>	<!-- (3) ROWNUM이 3보다 작은것들 SELECT하기 -->
 	</select>
 
 </mapper>

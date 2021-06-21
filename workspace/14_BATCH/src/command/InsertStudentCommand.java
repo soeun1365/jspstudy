@@ -41,8 +41,6 @@ public class InsertStudentCommand implements StudentCommand {
 			out.println("history.back()");
 			out.println("</script>");
 		}
-	
 		return null;
 	}
-
 }
