@@ -153,7 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\SPRING0303_ase\jspstudy\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\SPRING0303_ase\jspstudy\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\15_BEFORE_TEST" path="/15_BEFORE_TEST" reloadable="true" source="org.eclipse.jst.jee.server:15_BEFORE_TEST"/></Host>
+      <Context docBase="C:\SPRING0303_ase\jspstudy\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\SPRING0303_ase\jspstudy\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\15_BEFORE_TEST" path="/15_BEFORE_TEST" reloadable="true" source="org.eclipse.jst.jee.server:15_BEFORE_TEST"/><Context docBase="C:\SPRING0303_ase\jspstudy\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\13_AJAX" path="/13_AJAX" reloadable="true" source="org.eclipse.jst.jee.server:13_AJAX"/></Host>
     </Engine>
   </Service>
 </Server>

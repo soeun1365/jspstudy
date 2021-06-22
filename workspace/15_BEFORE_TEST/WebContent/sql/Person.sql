@@ -9,3 +9,5 @@ CREATE TABLE PERSON
 	
 );
 
+select * from person;
+
